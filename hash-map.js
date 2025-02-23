@@ -105,7 +105,10 @@ class HashMap {
   }
 
   shrink() {
-    if (this.counter / (this.capacity / 2) <= this.loadFactor) {
+    if (
+      this.capacity > 16 &&
+      this.counter / (this.capacity / 2) <= this.loadFactor
+    ) {
       const entries = this.entries();
       this.capacity /= 2;
       this.clear();
