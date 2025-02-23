@@ -3,7 +3,7 @@ class HashMap {
     this.capacity = 16;
     this.loadFactor = 0.75;
     this.counter = 0;
-    this.buckets = Array.from({ length: this.capacity }, () => []);
+    this.buckets = new Array(this.capacity).fill([]);
   }
 
   hash(key) {
@@ -70,7 +70,7 @@ class HashMap {
   }
 
   clear() {
-    this.buckets = Array.from({ length: this.capacity }, () => []);
+    this.buckets = new Array(this.capacity).fill([]);
     this.counter = 0;
   }
 
